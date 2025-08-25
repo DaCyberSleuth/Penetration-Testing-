@@ -5,10 +5,10 @@
 The objective of this project was to identify and exploit specific vulnerabilities within the Rukovoditel project management system (v3.2.1), hosted in a controlled virtual lab environment. 
 
 This project aimed to:
-	-	Demonstrate practical exploitation of common web vulnerabilities.
-	- Document proof-of-concept (PoC) attacks.
-	-	Map findings to business risks and MITRE ATT&CK techniques.
-	-	Provide actionable remediation strategies to reduce risk exposure.
+-	Demonstrate practical exploitation of common web vulnerabilities.
+- Document proof-of-concept (PoC) attacks.
+-	Map findings to business risks and MITRE ATT&CK techniques.
+-	Provide actionable remediation strategies to reduce risk exposure.
 
 
  ## Business Context
@@ -78,14 +78,14 @@ A reflected Cross-Site Scripting (XSS) vulnerability was identified in the `id` 
     *The closing tag was intentionally misspelled (**</scRipt>**) to test for and bypass potential naive input filters.*
 
 - The crafted payload was then injected into the value of the **id** parameter within the URL of the identified vulnerable endpoint. The resulting malicious URL was constructed as follows:
-**http://localhost/rukovoditel/index.php?module=entities/fields_form_internal&id="><script>alert("HACKED!");</scRipt>&entities_id=1**
+**`http://localhost/rukovoditel/index.php?module=entities/fields_form_internal&id="><script>alert("HACKED!");</scRipt>&entities_id=1`**
 
-- This malicious URL was then loaded into an authenticated browser session. Upon page load, a JavaScript alert box displaying the message "HACKED!" was immediately triggered. The successful execution of the arbitrary script confirmed the presence of the reflected Cross-Site Scripting vulnerability.
+- This malicious URL was then loaded into an authenticated browser session. Upon page load, a JavaScript alert box displaying the message **"HACKED!"** was immediately triggered. The successful execution of the arbitrary script confirmed the presence of the reflected Cross-Site Scripting vulnerability.
 
 
 <img width="1440" height="900" alt="Screenshot 2024-11-20 at 11 59 19 AM" src="https://github.com/user-attachments/assets/b108f3f6-3271-44ff-9885-43ad260d2c81" />
 *Ref 4: alert box triggered confirming vulnerability*
 
 
-### Testing for SQL Injection
+### 3. Testing for SQL Injection
 
