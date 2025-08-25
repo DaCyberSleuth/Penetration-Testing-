@@ -58,12 +58,15 @@ The Rukovoditel web-app contains a Stored Cross-Site Scripting (XSS) vulnerabili
 - After saving the entity, an alert box was immediately triggered, confirming the presence of a client-side vulnerability. This demonstration proved that the injected payload is stored by the application and executed in the browser of any user who subsequently views that page, resulting in the persistent appearance of the alert box.
 
 <img width="1440" height="900" alt="Screenshot 2024-11-13 at 10 28 46 AM" src="https://github.com/user-attachments/assets/69b42826-d37d-4164-848d-cd259397c3c5" />
+
 *Ref 1: stored xss vulnerable endpoint in rukovoditel*
 
 <img width="1440" height="900" alt="Screenshot 2024-11-13 at 10 30 22 AM" src="https://github.com/user-attachments/assets/9901efee-6dec-40f1-a048-9307f22cde31" />
+
 *Ref 2: xss test payload injected into **Name** input field*
 
  <img width="1440" height="900" alt="Screenshot 2024-11-13 at 10 30 35 AM" src="https://github.com/user-attachments/assets/23a12bc5-4e97-4142-b020-bc7e7b8d2cbe" />
+ 
 *Ref 3: alert box triggered, confirming vulnerability*
 
 
@@ -84,6 +87,7 @@ A reflected Cross-Site Scripting (XSS) vulnerability was identified in the `id` 
 
 
 <img width="1440" height="900" alt="Screenshot 2024-11-20 at 11 59 19 AM" src="https://github.com/user-attachments/assets/b108f3f6-3271-44ff-9885-43ad260d2c81" />
+
 *Ref 4: alert box triggered confirming vulnerability*
 
 
