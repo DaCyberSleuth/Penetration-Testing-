@@ -1,4 +1,4 @@
-# Penetration-Testing-
+# Penetration-Testing
 
 ## Objective 
 
@@ -218,3 +218,42 @@ This successful database enumeration demonstrated a significant security flaw, i
 <img width="1440" height="900" alt="Screenshot 2025-01-17 at 1 42 34 PM" src="https://github.com/user-attachments/assets/52bd32a3-b8b8-4c81-ae12-51f7354f73c4" />
 
 *Ref 14: Test succesfully enumerated 7 databases*
+
+
+## Findings & Analysis
+
+
+| #  | Vulnerability   | Description                                                                                   | Severity (CVSS) | MITRE ATT&CK Mapping |
+|----|-----------------|-----------------------------------------------------------------------------------------------|-----------------|----------------------|
+| 1  | Stored XSS      | Payload persisted in entity fields and executed every time the page was reloaded.             | High (8.0)      | T1059.007            |
+| 2  | Reflected XSS   | Script injected via URL parameter was immediately reflected and executed in the browser.      | High (8.0)      | T1059.007            |
+| 3  | SQL Injection   | Unsanitized inputs allowed database manipulation; SQLmap confirmed full DB enumeration.       | Critical (9.0)  | T1190                |
+
+
+## Business Impact Analysis
+
+
+| Vulnerability  | Potential Business Impact                                                      | Affected Functions             | Impact Category                     |
+|----------------|--------------------------------------------------------------------------------|--------------------------------|-------------------------------------|
+| Stored XSS     | Theft of cookies, user credentials, or session hijacking leading to account takeover. | User sessions, UI security      | Confidentiality, Integrity          |
+| Reflected XSS  | Delivery of malicious payloads via crafted links; phishing or credential theft. | Customer-facing operations      | Confidentiality                     |
+| SQL Injection  | Full compromise of application databases; unauthorized data access, deletion, or corruption. | Core data management, CRM       | Confidentiality, Integrity, Availability |
+
+
+## Remediation
+
+
+| Vulnerability  | Recommended Fix                                                                                                      |
+|----------------|----------------------------------------------------------------------------------------------------------------------|
+| Stored XSS     | Implement strict input validation and output encoding; sanitize user inputs before storage; enforce a Content Security Policy (CSP). |
+| Reflected XSS  | Validate and sanitize all query string parameters; encode outputs; apply a strong Content Security Policy (CSP).     |
+| SQL Injection  | Use parameterized queries (prepared statements), ensure the application uses least-privilege **database** accounts, and deploy a Web Application Firewall (WAF). |
+
+
+## Connclusion
+
+This assessment successfully demonstrated the exploitation of Stored XSS, Reflected XSS, and SQL Injection vulnerabilities in Rukovoditel v3.2.1.
+
+These vulnerabilities, if left unaddressed, could lead to severe business impact, including data theft, service disruption, and reputational damage.
+
+By implementing the recommended remediations — secure coding practices, regular patching, and stricter input handling — **Acme Technologies Ltd** can significantly reduce their attack surface and safeguard sensitive business operations.
